@@ -1,0 +1,211 @@
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+main{
+  margin: 20px;
+}
+
+.tablelist {
+  display: flex;
+  width: 100%;
+}
+
+#searchResult{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.CowCard{
+  display: flex;
+  gap: 5rem;
+  background-color: #71915c;
+  border-radius: 30px;
+  color: white;
+  padding: 2rem;
+  margin: 1rem;
+  width: 450px;
+}
+
+.CowCard img{
+  height: 80px;
+}
+
+.tablelist td,
+.tablelist th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.tablelist tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tablelist tr:hover {
+    background-color: #ddd;
+}
+
+.tablelist th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.delete_button{
+  padding: 4px 12px 4px 12px;
+  border-radius: 5px;
+
+}
+
+.searchform {
+   padding: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    margin-right: 35px;
+}
+
+.inputField,
+.button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(211, 206, 206); 
+}
+
+#dialogForm {
+    width: 300px;
+    border: 0;
+    box-shadow: 10px 10px 5px gray;
+}
+
+.dialogField {
+    width: 95%;
+}
+
+.dialogBtnsPanel {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;;
+}
+
+#guitarDialog {
+    width: 25%;
+}
+
+/* Source: https://www.w3schools.com/howto/howto_js_snackbar.asp */
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+  /* Search panel start */
+
+  .searchPanel {
+    position: fixed;
+    background-color: #71915c;
+    height: 100vh;
+    width: 30px;
+    right: 0px;
+    top: 0;
+    transition: width 2s;
+    display: flex;
+  }
+
+  .searchPanelAnim {
+    width: 300px;
+  }
+
+  .panelText {
+    position: relative;
+    color: white;
+    top: 20px;
+    left: 5px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    height: 95vh;
+    cursor: pointer;
+  }
+
+  .closeCross {
+    text-align: right;
+    color: white;
+    cursor: pointer;
+  }
+
+  .searchForm {
+    padding-left: 20px;
+    padding-top: 135px;
+  }
+
+  .searchFormLabel {
+    color: white;
+    display: block;
+  }
+
+  .searchFormField {
+    width: 225px;
+  }
+
+  .searchFormPanel {
+    display: flex;
+  }
+
+  /* Search panel end */

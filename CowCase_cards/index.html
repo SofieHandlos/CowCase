@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sofies Cow Inventory</title>
+    <link rel="stylesheet" href="styles/mystyle.css">
+</head>
+
+<body>
+    <h1>Sofies Cow Inventory</h1>
+    <div class="header">
+        <div>
+            <button type="button" class="button" id="addCowButton">Add cow</button>
+            <button type="button" class="button" id="showAllCowsButton">Show all cows</button>
+        </div>
+        <form id="snSearchForm">
+            <input type="search" id="registrationField" class="inputField" placeholder="Search Registrationnumber" required>
+            <button type="submit" class="button">Search</button>
+        </form>
+    </div>
+
+    <!-- Panel starts here -->
+    <aside class="searchPanel" id="searchPanel">
+        <span class="panelText" id="panelText">A D V A N C E D&nbsp;&nbsp;S E A R C H</span>
+        <form id="searchForm" class="searchForm">
+            <div class="closeCross" id="closeCross">X</div>
+            
+            <label class="searchFormLabel" for="registrationnumber">Registrationnumber</label><input type="text" id="registrationnumber" class="searchFormField">
+            
+            <label class="searchFormLabel" for="breed">Breed</label><input type="text" id="breed" class="searchFormField">
+            
+            <label class="searchFormLabel" for="boothnumber">Boothnumber</label><input type="text" id="boothnumber" class="searchFormField">
+            
+            <label class="searchFormLabel" for="birthday">Date of birth</label><input type="text" id="birthday" class="searchFormField">
+            
+            <label class="searchFormLabel" for="production">Last years production of milk (L)</label><input type="text" id="production" class="searchFormField">
+
+            <br><br>
+
+            <div class="searchFormPanel">
+                <button type="reset" class="searchFormButton">Reset</button>
+                <button type="submit" class="searchFormButton">Apply</button>
+            </div>
+        </form>
+    </aside>
+    <!-- Panel ends here -->
+
+    <!-- Add guitar dialog starts -->
+    <dialog id="CowDialog">
+        <form method="dialog" id="CowDialogForm">
+            <fieldset>
+                <legend>Add new cow</legend>
+                <label for="snfield">Regristrationnumber:</label><input type="text" class="inputField dialogField" id="registrationnumberfield" placeholder="Type in Regristrationnumber" required>
+                <label for="builderfield">Breed:</label><input type="text" class="inputField dialogField" id="breedfield" placeholder="Type in breed" required>
+                <label for="modelfield">Boothnumber:</label><input type="text" class="inputField dialogField" id="boothnumberfield" placeholder="Type in Boothnumber" required>
+                <label for="typefield">Date of birth:</label><input type="text" class="inputField dialogField" id="birthdayfield" placeholder="Type in date of birth" required>
+                <label for="backwoodfield">Production:</label><input type="text" class="inputField dialogField" id="productionfield" placeholder="Type in production of milk" required>
+
+
+                <br><br>
+                <div class="dialogBtnsPanel">
+                    <button type="button" id="cancelButton" class="button">Cancel</button>
+                    <button type="submit" id="saveButton" class="button">Save</button>
+
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+    <!-- Add guitar dialog end -->
+
+
+    <!-- Delete confirmation dialog starts here -->
+    <dialog id="confirmDialog">
+        <form method="dialog" id="confirmDialogForm">
+            <fieldset>
+                <legend>Delete cow</legend>
+                Do you really want to delete this cow?
+                <br><br>
+                <div class="dialogBtnsPanel">
+                    <button type="submit" class="button">Yes</button>
+                    <button type="button" class="button" id="cancelConfirmBtn">No</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+    <!-- Delete confirmation dialog end here -->
+
+
+    <!-- Hidden field -->
+    <form>
+        <input type="hidden" id="hiddenRegistrationField">
+    </form>
+    <!-- Hidden field -->
+
+    <!-- table for Cows -->
+    <table class="tablelist">
+        <!-- <thead>
+        <thead>
+            <tr>
+                <th>Regristrationnumber</th>
+                <th>Breed</th>
+                <th>Boothnumber</th>
+                <th>Date of birth</th>
+                <th>Production (L)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        </thead> -->
+        <tbody id="searchResult"></tbody>
+    </table>
+
+    <div id="snackbar">Some message will arrive</div>
+
+    <script type="module">
+    import Model from "./models/model.js"
+    import Controller from "./controllers/controller.js"
+    import View from "./views/view.js"
+
+    window.onload = function () {
+        const model = new Model();
+        const controller = new Controller();
+        const view = new View(controller);
+        controller.initialize(model, view);
+    }
+    </script>
+
+
+</body>
+
+</html>
